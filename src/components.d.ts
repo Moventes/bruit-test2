@@ -7,15 +7,47 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  BrtConfig,
+  BrtCoreConfig,
+  BrtData,
+} from '@bruit/types';
+import {
+  BruitIoConfig,
+} from './models/bruit-io-config.class';
 
 export namespace Components {
   interface BruitCore {
-    'options': any;
+    'config': BrtCoreConfig | string;
+    /**
+    * called on click on component init a feedback, wait user submit, send feedback
+    */
+    'newFeedback': (bruitIoConfig: BruitIoConfig, data?: BrtData[], dataFn?: () => BrtData[] | Promise<BrtData[]>) => Promise<void>;
+    'sendFeedback': (apiKey: any, agreement: any, data: any, dataFn: any) => Promise<any>;
   }
-  interface BruitIo {}
-  interface BruitRating {}
-  interface BruitSelect {}
+  interface BruitIo {
+    'config': BrtConfig | string;
+    /**
+    * field array to add in feedback
+    */
+    'data': Array<BrtData>;
+    /**
+    * FN or PROMISE return field array to add in feedback
+    */
+    'dataFn': () => Array<BrtData> | Promise<Array<BrtData>>;
+  }
+  interface BruitRating {
+    'color': string;
+    'max': number;
+    'offColor': string;
+    'value': number;
+  }
+  interface BruitSelect {
+    'id': string;
+    'options': Array<string>;
+    'required': boolean;
+    'value': string;
+  }
 }
 
 declare global {
@@ -54,11 +86,41 @@ declare global {
 
 declare namespace LocalJSX {
   interface BruitCore {
-    'options'?: any;
+    'config'?: BrtCoreConfig | string;
+    /**
+    * emit bruit-error on internal error or config error ex : BruitIo.addEventListener('onError',error=>...)
+    */
+    'onBrtError'?: (event: CustomEvent<any>) => void;
   }
-  interface BruitIo {}
-  interface BruitRating {}
-  interface BruitSelect {}
+  interface BruitIo {
+    'config'?: BrtConfig | string;
+    /**
+    * field array to add in feedback
+    */
+    'data'?: Array<BrtData>;
+    /**
+    * FN or PROMISE return field array to add in feedback
+    */
+    'dataFn'?: () => Array<BrtData> | Promise<Array<BrtData>>;
+    /**
+    * emit bruit-error on internal error or config error ex : BruitIo.addEventListener('onError',error=>...)
+    */
+    'onBrtError'?: (event: CustomEvent<any>) => void;
+    'onReady'?: (event: CustomEvent<any>) => void;
+  }
+  interface BruitRating {
+    'color'?: string;
+    'max'?: number;
+    'offColor'?: string;
+    'onValueChange'?: (event: CustomEvent<any>) => void;
+    'value'?: number;
+  }
+  interface BruitSelect {
+    'id'?: string;
+    'options'?: Array<string>;
+    'required'?: boolean;
+    'value'?: string;
+  }
 
   interface IntrinsicElements {
     'bruit-core': BruitCore;

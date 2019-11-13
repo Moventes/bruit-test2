@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'bruit-select',
@@ -7,11 +7,26 @@ import { Component, Host, h } from '@stencil/core';
 })
 export class BruitSelect {
 
+  @Prop()
+  id: string;
+
+  @Prop()
+  options: Array<string>;
+
+  @Prop()
+  value: string;
+
+  @Prop()
+  required: boolean;
+
   render() {
     return (
-      <Host>
-        <slot></slot>
-      </Host>
+      <select id={this.id} required={this.required}>
+        {[
+          <option value=""></option>,
+          ...this.options.map(option => <option value={option}>{option}</option>)
+        ]}
+      </select>
     );
   }
 
