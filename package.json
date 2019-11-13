@@ -1,0 +1,67 @@
+{
+  "name": "@bruit/component-test",
+  "version": "1.2.6",
+  "description": "send your feedbacks with bruit.io",
+  "keywords": [
+    "bruit",
+    "bruit.io",
+    "webcomponent",
+    "feedback",
+    "issues",
+    "stencil",
+    "user",
+    "connect"
+  ],
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/bruit/bruit.js",
+  "files": [
+    "dist/",
+    "loader/",
+    "init/"
+  ],
+  "scripts": {
+    "prebuild": "node config/set_config.js prod",
+    "prestart": "node config/set_config.js dev",
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate",
+    "prepublishOnly": "npm i && npm run build && node script/git-tag",
+    "postpublish": "node script/log-update-db.js"
+  },
+  "devDependencies": {
+    "@stencil/core": "1.7.5",
+    "@stencil/sass": "1.1.1",
+    "chalk": "^2.4.2",
+    "edit-json-file": "^1.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moventes/bruit.io.git"
+  },
+  "author": {
+    "name": "moventes",
+    "email": "dev@moventes.com",
+    "url": "https://moventes.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Moventes/bruit.io/issues",
+    "email": "dev@bruit.io"
+  },
+  "homepage": "https://bruit.io/",
+  "dependencies": {
+    "@bruit/types": "0.2.27-2",
+    "bowser": "^2.5.2",
+    "html2canvas": "^1.0.0-rc.5",
+    "lz-string": "^1.4.4"
+  }
+}
