@@ -8,19 +8,18 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist',
-      esmLoaderPath: '../loader'
+      esmLoaderPath: '../loader',
     },
     {
       type: 'docs-readme'
     },
     {
       type: 'www',
-      serviceWorker: null // disable service workers
+      serviceWorker: null, // disable service workers
     }
   ],
   plugins: [
     sass()
   ],
-  hashFileNames: false,
   globalScript: 'src/start.ts'
 };

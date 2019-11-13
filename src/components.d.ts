@@ -13,20 +13,9 @@ export namespace Components {
   interface BruitCore {
     'options': any;
   }
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
-  }
+  interface BruitIo {}
+  interface BruitRating {}
+  interface BruitSelect {}
 }
 
 declare global {
@@ -38,14 +27,28 @@ declare global {
     new (): HTMLBruitCoreElement;
   };
 
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  interface HTMLBruitIoElement extends Components.BruitIo, HTMLStencilElement {}
+  var HTMLBruitIoElement: {
+    prototype: HTMLBruitIoElement;
+    new (): HTMLBruitIoElement;
+  };
+
+  interface HTMLBruitRatingElement extends Components.BruitRating, HTMLStencilElement {}
+  var HTMLBruitRatingElement: {
+    prototype: HTMLBruitRatingElement;
+    new (): HTMLBruitRatingElement;
+  };
+
+  interface HTMLBruitSelectElement extends Components.BruitSelect, HTMLStencilElement {}
+  var HTMLBruitSelectElement: {
+    prototype: HTMLBruitSelectElement;
+    new (): HTMLBruitSelectElement;
   };
   interface HTMLElementTagNameMap {
     'bruit-core': HTMLBruitCoreElement;
-    'my-component': HTMLMyComponentElement;
+    'bruit-io': HTMLBruitIoElement;
+    'bruit-rating': HTMLBruitRatingElement;
+    'bruit-select': HTMLBruitSelectElement;
   }
 }
 
@@ -53,24 +56,15 @@ declare namespace LocalJSX {
   interface BruitCore {
     'options'?: any;
   }
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
-  }
+  interface BruitIo {}
+  interface BruitRating {}
+  interface BruitSelect {}
 
   interface IntrinsicElements {
     'bruit-core': BruitCore;
-    'my-component': MyComponent;
+    'bruit-io': BruitIo;
+    'bruit-rating': BruitRating;
+    'bruit-select': BruitSelect;
   }
 }
 
@@ -81,7 +75,9 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'bruit-core': LocalJSX.BruitCore & JSXBase.HTMLAttributes<HTMLBruitCoreElement>;
-      'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+      'bruit-io': LocalJSX.BruitIo & JSXBase.HTMLAttributes<HTMLBruitIoElement>;
+      'bruit-rating': LocalJSX.BruitRating & JSXBase.HTMLAttributes<HTMLBruitRatingElement>;
+      'bruit-select': LocalJSX.BruitSelect & JSXBase.HTMLAttributes<HTMLBruitSelectElement>;
     }
   }
 }

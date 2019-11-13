@@ -1,0 +1,32 @@
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.bruit-svg-icon {
+  width: 32px;
+  height: 32px;
+
+  &.bruit-big {
+    width: 48px;
+    height: 48px;
+  }
+
+  path,
+  polygon,
+  rect {
+    &:not(.bruit-no-color) {
+      fill: #ffffff;
+    }
+
+    stroke-width: 3;
+
+  }
+
+  circle {
+    &:not(.bruit-no-color) {
+      stroke: #ffffff;
+    }
+
+    stroke-width: 3;
+  }
+}

@@ -2,7 +2,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'bruit-core',
-  styleUrl: 'bruit-core.css',
+  styleUrl: 'bruit-core.scss',
   shadow: true
 })
 export class BruitCore {

@@ -20,3 +20,7 @@ export default function () {
     });
 
 }
+
+export function sendFeedback(test) {
+    console.log('wazza', test);
+}

@@ -1,0 +1,204 @@
+/* form starting stylings ------------------------------- */
+.bruit-group {
+  position: relative;
+  margin: 0 auto 45px auto;
+  width: 100%;
+  min-height: 20px;
+  max-width: 400px;
+  white-space: normal;
+
+  &.bruit-without-bar {
+    margin-bottom: 35px;
+  }
+
+
+  input:not([type="checkbox"]),
+  textarea {
+    font-size: 16px;
+    padding: 10px 0 10px 0;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #757575;
+    box-shadow: none;
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+      box-shadow: inherit;
+    }
+  }
+
+
+
+  /* LABEL ======================================= */
+  label,
+  .bruit-checkbox-label {
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+
+  /* active state */
+  input:not([type="checkbox"]),
+  textarea,
+  bruit-rating {
+    font-size: 14px;
+
+    &:focus,
+    &.bruit-has-value {
+
+      &~label {
+        top: -20px;
+        font-size: 14px;
+        // color: #5264AE;
+      }
+
+      // &:invalid {
+      //   &~label {
+      //     color: rgb(175, 42, 42);
+      //   }
+      // }
+
+    }
+
+    &:required~label:after {
+      content: " *";
+      color: rgb(175, 42, 42);
+      font-weight: bold;
+    }
+
+    &:disabled {
+      background-color: initial;
+
+      &~label {
+        color: #999;
+      }
+    }
+  }
+
+  /* BOTTOM BARS ================================= */
+  .bruit-bar {
+    position: relative;
+    display: block;
+    width: 100%;
+
+    &:before,
+    &:after {
+      content: '';
+      height: 2px;
+      width: 0;
+      bottom: 1px;
+      position: absolute;
+      //background: #5264AE;
+      transition: 0.2s ease all;
+      -moz-transition: 0.2s ease all;
+      -webkit-transition: 0.2s ease all;
+    }
+
+    &:before {
+      left: 50%;
+    }
+
+    &:after {
+      right: 50%;
+    }
+  }
+
+
+  /* active state */
+  input:not([type="checkbox"]),
+  textarea {
+
+    &:focus~.bar {
+
+      &:before,
+      &:after {
+        width: 50%;
+      }
+    }
+
+    // &:focus,
+    // &.has-value {
+
+    //   &:invalid~.bar:before,
+    //   &:invalid~.bar:after {
+    //     background: rgb(175, 42, 42);
+    //   }
+    // }
+  }
+
+  $grey: #555;
+
+  bruit-rating~label {
+    color: $grey
+  }
+
+
+  $green: #22b573;
+  $transitionSpeed: 200ms;
+
+  input[type="checkbox"]+label {
+    width: 14px;
+    height: 14px;
+    border: 2px solid $grey;
+    border-radius: 100%;
+    text-indent: 32px;
+    font: normal normal 14px "Helvetica";
+    white-space: nowrap;
+    color: $grey;
+    user-select: none;
+    pointer-events: initial;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0px;
+      height: 8px;
+      border-bottom: 2px solid;
+      border-left: 2px solid;
+      // border-color: $green;
+      top: 20%;
+      left: 50%;
+      transform-origin: bottom left;
+      transform: rotate(-45deg);
+      opacity: 0;
+      transition: all ease-out $transitionSpeed;
+    }
+  }
+
+  .bruit-checkbox-label {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    margin-left: 32px;
+    color: #555;
+    pointer-events: initial;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    font-size: 14px;
+  }
+
+  input[type="checkbox"]:checked+label {
+    border: 2px solid;
+    // border-color: $green;
+
+    &:after {
+      opacity: 1;
+      width: 18px;
+    }
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+}
