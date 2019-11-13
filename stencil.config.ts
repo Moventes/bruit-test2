@@ -22,4 +22,5 @@ export const config: Config = {
     sass()
   ],
   hashFileNames: false,
+  globalScript: 'src/start.ts'
 };

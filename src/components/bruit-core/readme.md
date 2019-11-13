@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type                | Default           |
-| --------- | --------- | ----------- | ------------------- | ----------------- |
-| `options` | --        |             | `{ test: string; }` | `{ test: 'bof' }` |
+| Property  | Attribute    | Description | Type  | Default     |
+| --------- | ------------ | ----------- | ----- | ----------- |
+| `options` | `brt-config` |             | `any` | `undefined` |
 
 
 ----------------------------------------------

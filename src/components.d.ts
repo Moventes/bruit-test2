@@ -11,7 +11,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface BruitCore {
-    'options': { test: string; };
+    'options': any;
   }
   interface MyComponent {
     /**
@@ -51,7 +51,7 @@ declare global {
 
 declare namespace LocalJSX {
   interface BruitCore {
-    'options'?: { test: string; };
+    'options'?: any;
   }
   interface MyComponent {
     /**

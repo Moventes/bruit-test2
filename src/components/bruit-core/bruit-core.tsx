@@ -7,7 +7,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 })
 export class BruitCore {
 
-  @Prop({ attr: 'brt-config' }) options = { test: 'bof' };
+  @Prop({ attribute: 'brt-config' }) options;
 
   render() {
     return (
