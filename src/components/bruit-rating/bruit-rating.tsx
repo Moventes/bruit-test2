@@ -3,7 +3,7 @@ import { Component, h, Prop, Watch, EventEmitter, State, Event } from '@stencil/
 @Component({
   tag: 'bruit-rating',
   styleUrl: 'bruit-rating.scss',
-  shadow: true
+  shadow: false
 })
 export class BruitRating {
 

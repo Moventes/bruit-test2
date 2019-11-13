@@ -113,7 +113,7 @@ export class BruitCore {
   hideVirtualKeyboard(): Promise<void> {
     if (NavigatorTool.isMobileOrTablet()) {
       return new Promise(resolve => {
-        document.getElementById('bruit-io-submit-button').focus();
+        this.bruitCoreElement.shadowRoot.getElementById('bruit-io-submit-button').focus();
         setTimeout(() => resolve(), 500);
       });
     } else {
@@ -318,13 +318,13 @@ export class BruitCore {
    */
   waitOnSubmit(): Promise<Array<BrtField>> {
     //getting the three clickable dom element (for submit or close modal)
-    const form: HTMLElement = this.bruitCoreElement.querySelector(
+    const form: HTMLElement = this.bruitCoreElement.shadowRoot.querySelector(
       '#bruit-io-form'
     );
-    const button_close: HTMLElement = this.bruitCoreElement.querySelector(
+    const button_close: HTMLElement = this.bruitCoreElement.shadowRoot.querySelector(
       '#bruit-io-btn-close'
     );
-    const modal_wrapper: HTMLElement = this.bruitCoreElement.querySelector(
+    const modal_wrapper: HTMLElement = this.bruitCoreElement.shadowRoot.querySelector(
       '#bruit-io-wrapper'
     );
 
@@ -370,7 +370,7 @@ export class BruitCore {
    */
   disabledBrtField(brtFields) {
     brtFields
-      .map(field => document.getElementById(field.id))
+      .map(field => this.bruitCoreElement.shadowRoot.getElementById(field.id))
       .forEach(domField => {
         domField.setAttribute('disabled', 'true');
       });

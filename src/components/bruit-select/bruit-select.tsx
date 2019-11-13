@@ -3,7 +3,7 @@ import { Component, h, Prop } from '@stencil/core';
 @Component({
   tag: 'bruit-select',
   styleUrl: 'bruit-select.scss',
-  shadow: true
+  shadow: false
 })
 export class BruitSelect {
 

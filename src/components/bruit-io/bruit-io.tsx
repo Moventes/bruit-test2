@@ -92,10 +92,12 @@ export class BruitIo {
    */
   componentWillLoad() {
     // first init
-    this.initConfig(this.config);
-
+    if(this.config){
+      this.initConfig(this.config);
+    }
     this._haveInnerElement = !!this.bruitIoElement.innerHTML ? !!this.bruitIoElement.innerHTML.trim() : false;
   }
+
 
   /**
    * called on click on component
