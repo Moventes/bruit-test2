@@ -1,66 +1,72 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-    <title>Stencil Component Starter</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/bruit.esm.js"></script>
-    <script nomodule src="/build/bruit.js"></script>
-    <!-- <script src="/init/start.js"></script> -->
-  </head>
+  <script type="module" src="/build/bruit.esm.js"></script>
+  <script nomodule src="/build/bruit.js"></script>
+  <!-- <script src="/init/start.js"></script> -->
+</head>
 
-  <body>
-    <img src="https://test.moventes.com/test/40001102-developer-wallpapers.jpg" alt="">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam molestiae earum repellendus corrupti distinctio
-      saepe iusto sapiente commodi deserunt expedita tempore dolorum autem, maxime dolor? Culpa ut nemo aspernatur
-      aliquid?
-    </p>
-    <bruit-io class="bruit-io"></bruit-io>
+<body>
+  <img src="https://test.moventes.com/test/40001102-developer-wallpapers.jpg" alt="">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam molestiae earum repellendus corrupti distinctio
+    saepe iusto sapiente commodi deserunt expedita tempore dolorum autem, maxime dolor? Culpa ut nemo aspernatur
+    aliquid?
+  </p>
+  <bruit-io class="bruit-io"></bruit-io>
 
-    <script>
-  var bruitCmp = document.querySelector('bruit-io');
-  // bruitCmp.addEventListener('onReady', function () {
-  //     bruitCmp.start();
-  // });
-  bruitCmp.config = {
-    apiKey: "44a63ba8-d93b-484f-b22f-15bcf45851c8",
-    labels: {
-      title: "Send us a feedback",
-      introduction: "Send us a feedback with bruit.io..."
-    },
-    form: [
-      {
-        label: "Question ?",
-        type: "text",
-        id: "title"
+  <script>
+    var bruitCmp = document.querySelector('bruit-io');
+    // bruitCmp.addEventListener('onReady', function () {
+    //     bruitCmp.start();
+    // });
+    bruitCmp.config = {
+      apiKey: "44a63ba8-d93b-484f-b22f-15bcf45851c8",
+      labels: {
+        title: "Send us a feedback",
+        introduction: "Send us a feedback with bruit.io..."
       },
-      {
-        label: "Rate",
-        type: "rating",
-        required: true,
-        max: 5
-      },
-      {
-        label: "Your email",
-        type: "email",
-        required: true
-      },
-      {
-        label: "Lorem",
-        type: "textarea",
-        required: true
-      },
-      {
-        id: "agreement",
-        type: "checkbox",
-        label: "I agree to send technical information in addition to my answers",
-        value: null
-      }
-    ]
-  };
-</script>
-  </body>
+      form: [
+        {
+          label: "Question ?",
+          type: "text",
+          id: "title"
+        },
+        {
+          label: "Rate",
+          type: "rating",
+          required: true,
+          max: 5
+        },
+        {
+          label: "Your email",
+          type: "email",
+          required: true
+        },
+        {
+          label: "testtest",
+          type: "select",
+          required: true,
+          options: ['a', 'b', 'c']
+        },
+        {
+          label: "Lorem",
+          type: "textarea",
+          required: true
+        },
+        {
+          id: "agreement",
+          type: "checkbox",
+          label: "I agree to send technical information in addition to my answers",
+          value: null
+        }
+      ]
+    };
+  </script>
+</body>
 
 </html>

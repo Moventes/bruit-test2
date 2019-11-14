@@ -4,7 +4,7 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'bruit',
-  bundles: [{ components: ['bruit-core'] }],
+  bundles: [{ components: ['bruit-core', 'bruit-io', 'bruit-rating', 'bruit-select'] }],
   outputTargets: [
     {
       type: 'dist',
